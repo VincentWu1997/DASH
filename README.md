@@ -3,7 +3,6 @@
 
 The Team
 --------
-***
 * Andrew Stoddart
 * Benji Jackson
 * Dongyang
