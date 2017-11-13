@@ -1,5 +1,5 @@
-[Durham Action on Single Housing Ltd](https://www.dashorg.co.uk/)
------------------------------------
+# [Durham Action on Single Housing Ltd](https://www.dashorg.co.uk/)
+
 
 The Team
 --------
