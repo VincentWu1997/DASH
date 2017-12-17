@@ -1,4 +1,4 @@
-package uk.co.dashorg.dash;
+package uk.co.dashorg.dash.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,12 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class LoginFragment extends Fragment {
+import uk.co.dashorg.dash.MainActivity;
+import uk.co.dashorg.dash.R;
+
+public class ContactFragment extends Fragment {
+    private ViewGroup layout;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_login, container, false);
+        layout = (ViewGroup) inflater.inflate(R.layout.fragment_contact, container, false);
+        MainActivity.setTitle(this, "Contact us");
 
         return layout;
     }

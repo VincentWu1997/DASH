@@ -9,14 +9,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import uk.co.dashorg.dash.MainActivity;
 import uk.co.dashorg.dash.R;
 
-public class ContactFragment extends Fragment {
+public class FeedbackFragment extends Fragment {
+    private ViewGroup layout;
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ConstraintLayout layout = (ConstraintLayout) inflater.inflate(R.layout.fragment_login, container, false);
+        layout = (ViewGroup) inflater.inflate(R.layout.fragment_feedback, container, false);
+        MainActivity.setTitle(this, "Feedback");
 
         return layout;
     }

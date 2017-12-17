@@ -1,8 +1,8 @@
 package uk.co.dashorg.dash;
 
-/**
- * Created by andrew on 06/12/17.
- */
+public final class RequestCodes {
+    public final static int INFO_FRAGMENT_CALL_PHONE_REQUEST = 0;
+    public final static int TRACK_FRAGMENT_FORM_REQUEST = 1;
 
-public class RequestCodes {
+    public final static int DEV_FRAGMENT_FORM_REQUEST = 1000;
 }

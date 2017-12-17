@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="89dp">
+
+        <TextView
+            android:id="@+id/contact_number_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Contact number"
+            app:layout_constraintStart_toStartOf="@+id/full_name_input"
+            app:layout_constraintTop_toBottomOf="@+id/full_name_input" />
+
+        <EditText
+            android:id="@+id/contact_number_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            app:layout_constraintStart_toStartOf="@+id/contact_number_label"
+            app:layout_constraintTop_toBottomOf="@+id/contact_number_label" />
+
+        <TextView
+            android:id="@+id/full_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Full name"
+            app:layout_constraintStart_toStartOf="@+id/full_name_input"
+            app:layout_constraintTop_toBottomOf="@+id/applicant_details_label" />
+
+        <EditText
+            android:id="@+id/full_name_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/full_name_label" />
+
+        <TextView
+            android:id="@+id/previous_names_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Previous names"
+            app:layout_constraintStart_toStartOf="@+id/contact_number_input"
+            app:layout_constraintTop_toBottomOf="@+id/contact_number_input" />
+
+        <EditText
+            android:id="@+id/previous_names_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            app:layout_constraintStart_toStartOf="@+id/previous_names_label"
+            app:layout_constraintTop_toBottomOf="@+id/previous_names_label" />
+
+        <TextView
+            android:id="@+id/date_of_birth_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Date of birth"
+            app:layout_constraintStart_toStartOf="@+id/previous_names_input"
+            app:layout_constraintTop_toBottomOf="@+id/previous_names_input" />
+
+        <EditText
+            android:id="@+id/date_of_birth_input"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            app:layout_constraintStart_toStartOf="@+id/date_of_birth_label"
+            app:layout_constraintTop_toBottomOf="@+id/date_of_birth_label" />
+
+        <TextView
+            android:id="@+id/gender_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Gender"
+            app:layout_constraintStart_toStartOf="@+id/date_of_birth_input"
+            app:layout_constraintTop_toBottomOf="@+id/date_of_birth_input" />
+
+        <RadioGroup
+            android:id="@+id/gender_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/gender_label"
+            app:layout_constraintTop_toBottomOf="@+id/gender_label">
+
+            <RadioButton
+                android:id="@+id/male_gender_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Male" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <RadioButton
+                android:id="@+id/female_gender_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Female"
+                tools:layout_editor_absoluteX="90dp"
+                tools:layout_editor_absoluteY="447dp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/benefits_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="Entitled to claim benefits in the UK?"
+            app:layout_constraintTop_toBottomOf="@+id/gender_radio_group"
+            tools:layout_editor_absoluteX="32dp" />
+
+        <RadioGroup
+            android:id="@+id/benefits_radio_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/benefits_label"
+            app:layout_constraintTop_toBottomOf="@+id/benefits_label">
+
+            <RadioButton
+                android:id="@+id/radioButton5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Yes" />
+
+            <Space
+                android:layout_width="16dp"
+                android:layout_height="match_parent" />
+
+            <RadioButton
+                android:id="@+id/radioButton6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="No" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="textMultiLine"
+            android:lines="3"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Current address"
+            app:layout_constraintStart_toStartOf="@+id/living_situation_label"
+            app:layout_constraintTop_toBottomOf="@+id/living_situation_label" />
+
+        <TextView
+            android:id="@+id/applicant_details_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:text="Applicant Details"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/living_situation_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Current Living Situation"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintStart_toStartOf="@+id/benefits_radio_group"
+            app:layout_constraintTop_toBottomOf="@+id/benefits_radio_group" />
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

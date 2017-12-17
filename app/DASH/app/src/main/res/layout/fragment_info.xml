@@ -1,126 +1,342 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorSecondaryLight"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="0dp">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteY="81dp">
 
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
+        <android.support.v7.widget.CardView
+            android:id="@+id/contact_card"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="Social media"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:visibility="gone"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/transparent">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/fab_email"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/fab_phone"
+                    app:layout_constraintTop_toBottomOf="@+id/text_contact_us"
+                    app:srcCompat="@drawable/ic_message" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="16dp"
+                    android:clickable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/fab_message"
+                    app:layout_constraintTop_toTopOf="@+id/fab_message"
+                    app:srcCompat="@drawable/ic_mail" />
+
+                <TextView
+                    android:id="@+id/text_contact_us"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Contact us"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="32dp"
+                    android:clickable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/fab_message"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/fab_message"
+                    app:srcCompat="@drawable/ic_phone" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/social_media_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorSecondaryDark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/contact_card">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_facebook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/fab_twitter"
+                    app:layout_constraintEnd_toStartOf="@+id/fab_youtube"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/fab_twitter"
+                    app:layout_constraintTop_toTopOf="@+id/fab_twitter"
+                    app:srcCompat="@drawable/ic_facebook" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_youtube"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/fab_facebook"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/fab_facebook"
+                    app:layout_constraintTop_toTopOf="@+id/fab_facebook"
+                    app:srcCompat="@drawable/ic_youtube_play" />
+
+                <TextView
+                    android:id="@+id/text_social_media"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="24dp"
+                    android:text="Social media"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:visibility="visible"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_instagram"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/fab_twitter"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/text_social_media"
+                    app:srcCompat="@drawable/ic_instagram" />
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintEnd_toStartOf="@+id/fab_facebook"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/fab_instagram"
+                    app:layout_constraintTop_toTopOf="@+id/fab_instagram"
+                    app:srcCompat="@drawable/ic_twitter" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/address_card"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorSecondaryDark"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/social_media_card">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_instagram"
-            android:layout_width="72dp"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fab_directions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:clickable="true"
+                    app:elevation="16dp"
+                    app:layout_constraintBottom_toTopOf="@+id/directions_label"
+                    app:layout_constraintEnd_toEndOf="@+id/directions_label"
+                    app:layout_constraintHorizontal_bias="0.51"
+                    app:layout_constraintStart_toStartOf="@+id/directions_label"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    app:srcCompat="@drawable/ic_directions" />
+
+                <TextView
+                    android:id="@+id/office_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="Head Office"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@+id/office_address"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/office_address"
+                    android:layout_width="93dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="24dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="2dp"
+                    android:text="DASH\nHudson House\nGort Place\nGilesgate\nDurham\nDH1 1EY"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/directions_label"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/office_title" />
+
+                <TextView
+                    android:id="@+id/directions_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="19dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Get directions"
+                    android:textAppearance="@android:style/TextAppearance.Material.Small.Inverse"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/office_address"
+                    app:layout_constraintTop_toBottomOf="@+id/fab_directions" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/ipsum_card"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:layout_marginTop="32dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:elevation="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="@color/colorSecondaryDark"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/fab_twitter"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="packed"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/ic_instagram" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_twitter"
-            android:layout_width="73dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:elevation="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/fab_facebook"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/fab_instagram"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_twitter" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_facebook"
-            android:layout_width="73dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:elevation="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/fab_youtube"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/fab_twitter"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_facebook" />
-
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/fab_youtube"
-            android:layout_width="73dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:clickable="true"
-            android:focusable="true"
-            app:elevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/fab_facebook"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_youtube_play" />
-    </android.support.constraint.ConstraintLayout>
-
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="32dp"
-        android:background="@color/colorSecondaryDark"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fab_twitter">
-
-        <TextView
-            android:id="@+id/textView3"
-            android:textAppearance="@android:style/TextAppearance.Material.Large"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="32dp"
-            android:text="DASH website"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/address_card">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="Lorem Ipsum"
+                    android:textAppearance="@android:style/TextAppearance.Material.Medium.Inverse"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eget laoreet tortor. Quisque nec leo quis dui convallis fringilla. Maecenas sem enim, aliquet ut enim non, molestie varius quam. Phasellus mattis cursus justo ac vehicula. Pellentesque laoreet venenatis eros, non tristique velit varius ullamcorper. Etiam purus nulla, rhoncus at nisi non, varius luctus nunc. Mauris tempor nisi ac lectus pharetra pharetra. Integer in lectus lacus. Maecenas sed pretium est. In sed quam sapien.
+\n\n
+Pellentesque eget dignissim turpis, vel porta magna. Mauris dapibus felis ligula. Proin tellus est, condimentum eu elementum sit amet, ornare eu neque. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sit amet purus aliquam diam commodo congue. Suspendisse id elit nec sapien fermentum maximus et et tellus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec venenatis aliquam quam, vel venenatis turpis dapibus eget. Sed nisl ipsum, ultrices sit amet lorem a, fringilla mattis diam. In eget sollicitudin leo, vitae pellentesque libero. Curabitur in fermentum mauris. In vitae mi sed augue aliquam imperdiet ut sit amet dolor. Aenean ultrices mauris rutrum, iaculis nibh ut, scelerisque dolor.
+\n\n
+In hac habitasse platea dictumst. Quisque eget hendrerit metus. In hac habitasse platea dictumst. Maecenas malesuada justo sit amet tristique rutrum. Cras sed venenatis libero. Vivamus erat lacus, accumsan ac orci ut, hendrerit tristique mi. Praesent porttitor vulputate volutpat. Cras posuere massa at justo imperdiet imperdiet. Maecenas iaculis at mauris quis elementum. Integer egestas libero magna.
+\n\n
+Integer tempor odio quis faucibus hendrerit. Nam at convallis ligula, a porta ipsum. Aliquam tempus tristique erat, ac ullamcorper nunc porttitor eu. Maecenas placerat convallis est laoreet molestie. Morbi non eros neque. Fusce pharetra sit amet neque vitae luctus. Sed hendrerit rutrum aliquam. Phasellus dignissim diam odio, vel ultrices lorem porttitor sed. Curabitur placerat elementum sapien at dignissim.
+\n\n
+Aenean vestibulum ligula ligula, at iaculis ipsum sodales sed. Phasellus dignissim nec enim et consectetur. Aliquam fermentum lorem vel porttitor condimentum. Morbi eu gravida mi, in vehicula odio. Sed a massa odio. Nunc vitae magna ut justo pharetra tristique. Nam pharetra dictum lacus eget lacinia. Aenean euismod feugiat turpis, sed interdum dolor scelerisque a. Curabitur commodo fringilla fermentum. Vivamus risus ante, cursus ut pellentesque id, condimentum euismod ante. Donec ligula ex, aliquam eget ornare eget, blandit id orci. Nam sollicitudin venenatis lectus quis tempus." />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.v7.widget.CardView>
+
     </android.support.constraint.ConstraintLayout>
-
-    <WebView
-        android:id="@+id/webview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
-
-</android.support.constraint.ConstraintLayout>
+</ScrollView>

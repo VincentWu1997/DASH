@@ -1,18 +1,571 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:fitsSystemWindows="true">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/track_constraint_main"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login fragment"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</android.support.constraint.ConstraintLayout>
+        android:animateLayoutChanges="true"
+        tools:layout_editor_absoluteY="81dp">
+
+
+        <TextView
+            android:id="@+id/account_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:text="Create an account"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/account_indicator_frame"
+            app:layout_constraintStart_toEndOf="@+id/account_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/account_indicator_frame" />
+
+        <FrameLayout
+            android:id="@+id/account_indicator_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="32dp"
+            android:elevation="2dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.github.jorgecastilloprz.FABProgressCircle
+                android:id="@+id/account_indicator_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:circleSize="mini"
+                app:arcColor="@color/colorSecondaryDark">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/account_indicator_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp"
+                    app:fabSize="mini" />
+            </com.github.jorgecastilloprz.FABProgressCircle>
+
+            <TextView
+                android:id="@+id/account_indicator_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:text="1"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/account_title"
+            app:layout_constraintTop_toBottomOf="@+id/account_title">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/account_contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true">
+
+                <TextView
+                    android:id="@+id/account_content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let's start by creating an account.\nIt will be used to track the application."
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/create_account_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/colorSecondary"
+                    android:text="Create account"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/account_content_text" />
+
+                <TextView
+                    android:id="@+id/account_status_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Verifying account"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/create_account_button"
+                    app:layout_constraintTop_toTopOf="@+id/create_account_button"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:visibility="visible" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/separator_1_2"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/track_separator_todo"
+            android:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fill_form_title"
+            app:layout_constraintEnd_toEndOf="@+id/account_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/account_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/account_title" />
+
+
+        <FrameLayout
+            android:id="@+id/fill_form_indicator_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="16dp"
+            android:elevation="2dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="@+id/account_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/account_indicator_frame"
+            app:layout_constraintTop_toBottomOf="@+id/container1">
+
+            <com.github.jorgecastilloprz.FABProgressCircle
+                android:id="@+id/fill_form_indicator_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:circleSize="mini"
+                app:arcColor="@color/colorSecondaryDark">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fill_form_indicator_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp"
+                    app:fabSize="mini" />
+            </com.github.jorgecastilloprz.FABProgressCircle>
+
+            <TextView
+                android:id="@+id/fill_form_indicator_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:text="2"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/fill_form_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:text="Fill out the application form"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintStart_toEndOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/fill_form_indicator_frame" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintTop_toBottomOf="@+id/fill_form_title">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/fill_form_contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/fill_form_content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="We're going to need some of your details.\nFill in the form so that we can register you."
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/open_form_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/colorSecondary"
+                    android:text="Open form"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fill_form_content_text" />
+
+                <TextView
+                    android:id="@+id/form_status_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:text="Checking form"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/open_form_button"
+                    app:layout_constraintTop_toBottomOf="@+id/fill_form_content_text"
+                    app:layout_constraintVertical_bias="0.619"
+                    tools:layout_editor_absoluteX="0dp"
+                    tools:visibility="visible" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/separator_2_3"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/track_separator_todo"
+            android:elevation="0dp"
+            app:layout_constraintBottom_toBottomOf="@+id/send_title"
+            app:layout_constraintEnd_toEndOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/fill_form_title" />
+
+        <FrameLayout
+            android:id="@+id/send_indicator_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="16dp"
+            android:elevation="2dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/fill_form_indicator_frame"
+            app:layout_constraintTop_toBottomOf="@+id/container2">
+
+            <com.github.jorgecastilloprz.FABProgressCircle
+                android:id="@+id/send_indicator_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:circleSize="mini"
+                app:arcColor="@color/colorSecondaryDark">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/send_indicator_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp"
+                    app:fabSize="mini" />
+            </com.github.jorgecastilloprz.FABProgressCircle>
+
+            <TextView
+                android:id="@+id/send_indicator_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:text="3"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/send_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:text="Send us your form"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/send_indicator_frame"
+            app:layout_constraintStart_toEndOf="@+id/send_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/send_indicator_frame"
+            app:layout_constraintVertical_bias="0.555" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="8dp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical"
+            android:visibility="visible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/send_title"
+            app:layout_constraintTop_toBottomOf="@+id/send_title">
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/send_contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:animateLayoutChanges="true"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/send_content_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Happy with your form?\nSend it to us for review." />
+
+                <Button
+                    android:id="@+id/send_form_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/colorSecondary"
+                    android:text="Send form"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/send_content_text"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/send_status_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Connecting to DASH"
+                    android:textSize="12sp"
+                    android:visibility="invisible"
+                    app:layout_constraintBottom_toBottomOf="@+id/send_form_button"
+                    app:layout_constraintStart_toStartOf="@+id/send_content_text"
+                    app:layout_constraintTop_toTopOf="@+id/send_form_button"
+                    tools:visibility="visible" />
+
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/separator_3_4"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:animateLayoutChanges="true"
+            android:background="@color/track_separator_todo"
+            app:layout_constraintBottom_toBottomOf="@+id/review_title"
+            app:layout_constraintEnd_toEndOf="@+id/send_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/send_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/send_title" />
+
+        <FrameLayout
+            android:id="@+id/review_indicator_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="16dp"
+            android:elevation="2dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="@+id/send_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/send_indicator_frame"
+            app:layout_constraintTop_toBottomOf="@+id/container3">
+
+            <com.github.jorgecastilloprz.FABProgressCircle
+                android:id="@+id/review_indicator_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:circleSize="mini"
+                app:arcColor="@color/colorSecondaryDark">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/review_indicator_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp"
+                    app:fabSize="mini" />
+            </com.github.jorgecastilloprz.FABProgressCircle>
+
+            <TextView
+                android:id="@+id/review_indicator_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:text="4"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/review_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="center_vertical"
+            android:text="Review process"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/review_indicator_frame"
+            app:layout_constraintStart_toEndOf="@+id/review_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/review_indicator_frame" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginTop="8dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/review_title"
+            app:layout_constraintTop_toBottomOf="@+id/review_title">
+
+
+            <android.support.constraint.ConstraintLayout
+                android:id="@+id/review_contents"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <TextView
+                    android:id="@+id/review_content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Your application is being reviewed.\nThis may take up to two working days."
+                    tools:visibility="visible" />
+
+                <Button
+                    android:id="@+id/review_contact_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/colorSecondary"
+                    android:text="Contact us"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/review_content_text"
+                    tools:visibility="visible" />
+            </android.support.constraint.ConstraintLayout>
+
+        </android.support.constraint.ConstraintLayout>
+
+        <View
+            android:id="@+id/separator_4_5"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/track_separator_todo"
+            app:layout_constraintBottom_toBottomOf="@+id/done_title"
+            app:layout_constraintEnd_toEndOf="@+id/review_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/review_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/review_title" />
+
+        <FrameLayout
+            android:id="@+id/done_indicator_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="16dp"
+            android:elevation="2dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            app:layout_constraintEnd_toEndOf="@+id/review_indicator_frame"
+            app:layout_constraintStart_toStartOf="@+id/review_indicator_frame"
+            app:layout_constraintTop_toBottomOf="@+id/container4">
+
+            <com.github.jorgecastilloprz.FABProgressCircle
+                android:id="@+id/done_indicator_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="4dp"
+                app:circleSize="mini"
+                app:arcColor="@color/colorSecondaryDark">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/done_indicator_fab"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:elevation="0dp"
+                    app:fabSize="mini" />
+            </com.github.jorgecastilloprz.FABProgressCircle>
+
+            <TextView
+                android:id="@+id/done_indicator_text"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:elevation="16dp"
+                android:text="5"
+                android:textAppearance="@android:style/TextAppearance.Material.Medium"
+                android:textColor="@android:color/white" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/done_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_vertical"
+            android:text="Done"
+            android:textAppearance="@android:style/TextAppearance.Material.Medium"
+            app:layout_constraintBottom_toBottomOf="@+id/done_indicator_frame"
+            app:layout_constraintStart_toEndOf="@+id/done_indicator_frame"
+            app:layout_constraintTop_toTopOf="@+id/done_indicator_frame" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/done_content_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:animateLayoutChanges="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/done_indicator_frame"
+            app:layout_constraintTop_toBottomOf="@+id/done_title">
+
+            <TextView
+                android:id="@+id/done_contents"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:text="You've successfully completed the application process!"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:visibility="visible" />
+        </android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>

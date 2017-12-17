@@ -1,38 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
+    <group android:id="@+id/group_1" android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Import" />
+            android:id="@+id/nav_account"
+            android:icon="@drawable/ic_menu_account"
+            android:title="Account"
+            android:checked="true"/>
         <item
-            android:id="@+id/nav_gallery"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Gallery" />
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_menu_contact"
+            android:title="Contact us" />
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
+            android:id="@+id/nav_track"
+            android:icon="@drawable/ic_menu_track"
+            android:title="Track application" />
         <item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_menu_newsfeed"
+            android:title="News feed" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
+    <group android:id="@+id/group_2" android:checkableBehavior="single">
+        <item android:title="Other">
+            <menu>
+                <group android:id="@+id/group_3" android:checkableBehavior="single">
+                    <item
+                        android:id="@+id/nav_info"
+                        android:icon="@drawable/ic_menu_info"
+                        android:title="Useful info" />
+                    <item
+                        android:id="@+id/nav_feedback"
+                        android:icon="@drawable/ic_menu_feedback"
+                        android:title="Feedback" />
+                    <item
+                        android:id="@+id/nav_about"
+                        android:icon="@drawable/ic_menu_about"
+                        android:title="About DASH" />
+                </group>
+            </menu>
+        </item>
+    </group>
+
+    <group android:id="@+id/group_4" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dev"
+            android:icon="@drawable/ic_menu_dev"
+            android:title="Developer tools" />
+    </group>
 
 </menu>
