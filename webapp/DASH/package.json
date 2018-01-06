@@ -1,0 +1,23 @@
+{
+  "name": "dash",
+  "version": "1.0.0",
+  "description": "web app for the DASH team to control the DASH mobile app",
+  "main": "Server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stoddarta/DASH.git"
+  },
+  "author": "group13",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stoddarta/DASH/issues"
+  },
+  "homepage": "https://github.com/stoddarta/DASH#readme",
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}
