@@ -8,13 +8,36 @@ function openConnection() {
     return db
 }
 
-exports.save = function(userID, feedback) {
+exports.save = function(email, feedback) {
     db = openConnection();
 
-    db.run('INSERT INTO Feedback(userID, feedback) VALUES (?, ?)', (userID, feedback), (err) => {
+    db.run('INSERT INTO Feedback(email, feedback) VALUES (?, ?)', [email, feedback], (err) => {
         if(err) console.log(err.message)
         else console.log('Feedback successfully inserted.')
     })
 
     db.close();
+}
+
+exports.get = function() {
+    db = openConnection();
+    
+    db.all('SELECT * FROM Feedback', (err, rows) => {
+        if(err) throw err
+        console.log(rows)
+        return rows
+    })
+    
+    db.close();
+}
+
+exports.printAll = function() {
+    db = openConnection()
+
+    db.each('SELECT * FROM Feedback', (err, row) => {
+        if(err) throw err
+        console.log(row)
+    })
+
+    db.close()
 }

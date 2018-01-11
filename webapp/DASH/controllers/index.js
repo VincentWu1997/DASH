@@ -53,19 +53,21 @@ db.serialize(function() {
     StaffAccountTest.printAll()
     */
 
-    // testing /models/user_account.js
+    /*/ testing /models/user_account.js
     var UserAccountTest = require('../models/user_account')
     UserAccountTest.create('email@email.com', 'password', 1, (err) => {
         if(err) console.log(err.message)
     })
     UserAccountTest.printAll()
-    
+    */
     
 
-    /* testing /models/feedback.js
+    // testing /models/feedback.js
     var FeedbackTest = require('../models/feedback')
-    FeedbackTest.save(2, 'Your app is shit fam!')
-    */
+    //FeedbackTest.save('email@email.com', 'Your app is shit fam!')
+    FeedbackTest.get()
+    //FeedbackTest.printAll()
+    
 
     db.close()
 })
