@@ -62,12 +62,12 @@ db.serialize(function() {
     */
     
 
-    // testing /models/feedback.js
+    /* testing /models/feedback.js
     var FeedbackTest = require('../models/feedback')
-    //FeedbackTest.save('email@email.com', 'Your app is shit fam!')
+    FeedbackTest.save('email@email.com', 'Your app is shit fam!')
     FeedbackTest.get()
-    //FeedbackTest.printAll()
-    
+    FeedbackTest.printAll()
+    */
 
     db.close()
 })
