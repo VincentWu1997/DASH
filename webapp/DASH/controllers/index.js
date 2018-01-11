@@ -30,29 +30,38 @@ let db = new sqlite3.Database(path.join(__dirname, '..', 'models/data/database.d
 })
 db.serialize(function() {
     // creating tables
-    db.run('CREATE TABLE IF NOT EXISTS Staff_Account (staffID INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR NOT NULL, password VARCHAR not null, canEditNews BOOLEAN DEFAULT FALSE)')
-    db.run('CREATE TABLE IF NOT EXISTS User_Account (userID INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR NOT NULL, password VARCHAR not null, staffID INTEGER NOT NULL, FOREIGN KEY (staffID) REFERENCES Staff_Account (staffID))')
+    db.run('CREATE TABLE IF NOT EXISTS Staff_Account (staffID INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR NOT NULL UNIQUE, password VARCHAR not null, canEditNews BOOLEAN DEFAULT FALSE)')
+    db.run('CREATE TABLE IF NOT EXISTS User_Account (userID INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR NOT NULL UNIQUE, password VARCHAR not null, staffID INTEGER NOT NULL, FOREIGN KEY (staffID) REFERENCES Staff_Account (staffID))')
     db.run('CREATE TABLE IF NOT EXISTS News (newsID INTEGER PRIMARY KEY AUTOINCREMENT, staffID INTEGER NOT NULL, title VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, blurb VARCHAR,  FOREIGN KEY(staffID) REFERENCES Staff_Account(staffID))')
     db.run('CREATE TABLE IF NOT EXISTS Feedback (feedbackID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, feedback VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY(userID) REFERENCES User_Account(userID))')    
     db.run('CREATE TABLE IF NOT EXISTS Referral_Form (referralID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, referralJSON VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, status INTEGER DEFAULT 0, FOREIGN KEY(userID) REFERENCES User_Account(userID))')
     
-    // inserting test data
-    db.run('INSERT INTO Staff_Account(staffID, username, password, canEditNews) VALUES(0, "staff", "password", 0)', (err) => {
-        if(err) console.log(err)
-        else console.log('Insert success')
+    // create admin account ie staff account 0
+    db.run('INSERT INTO Staff_Account(staffID, username, password, canEditNews) VALUES(0, "admin", "password", 1)', (err) => {
+        if(err) console.log('Admin account already created.')
+        else console.log('Admin account created')
     })
+
+    // testing /models/staff_account.js
+    var StaffAccountTest = require('../models/staff_account')
+    StaffAccountTest.create('staff01', 'password', 0, (err) => {
+        if(err) console.log(err.message)
+    })
+    StaffAccountTest.printAll()
     
-    db.all('SELECT * FROM Staff_Account', [], (err, rows) => {
-        if (err) {
-          throw err;
-        }
-        rows.forEach((row) => {
-          console.log(row);
-        });
-      });
+
+    /* testing /models/feedback.js
+    var FeedbackTest = require('../models/feedback')
+    FeedbackTest.save(2, 'Your app is shit fam!')
+    */
 
     db.close()
 })
+
+
+
+
+
 
 // testing routes....
 router.use(express.static(path.join(__dirname, '..', 'views')))
