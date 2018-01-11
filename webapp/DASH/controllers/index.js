@@ -48,6 +48,13 @@ db.serialize(function() {
         if(err) console.log(err.message)
     })
     StaffAccountTest.printAll()
+
+    // testing /models/user_account.js
+    var UserAccountTest = require('../models/user_account')
+    UserAccountTest.create('email@email.com', 'password', 1, (err) => {
+        if(err) console.log(err.message)
+    })
+    UserAccountTest.printAll()
     
 
     /* testing /models/feedback.js
