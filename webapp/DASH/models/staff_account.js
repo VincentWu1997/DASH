@@ -10,22 +10,44 @@ function openConnection() {
 
 exports.create = function(username, password, canEditNews, callback) {
     db = openConnection();
-    db.run('INSERT INTO Staff_Account(username, password, canEditNews) VALUES(?, ?, ?)', [username, password, 0], (err) => {
+    db.run('INSERT INTO Staff_Account(username, password, canEditNews) VALUES(?, ?, ?)', [username, password, canEditNews], (err) => {
         if(err) callback(new Error("Username already exists!"))
         else callback(null)
     })
     db.close();
 }
 
-exports.delete = function(staffID) {
+exports.delete = function(username) {
     db = openConnection();
 
-    db.run('DELETE FROM Staff_Account WHERE staffID = (?)', [staffID], (err) => {
+    db.run('DELETE FROM Staff_Account WHERE username = (?)', [username], (err) => {
         if(err) console.log(err.message)
         else console.log('Staff Account successfully deleted.')
     })
 
     db.close();
+}
+
+exports.changePassword = function(username, old_password, new_password) {
+    db = openConnection()
+    
+        db.run('UPDATE Staff_Account SET password = (?) WHERE username = (?) AND password = (?)', [new_password, username, old_password], (err) => {
+            if(err) console.log(err.message)
+            else console.log('Password updated!')
+        })
+    
+        db.close()
+}
+
+exports.updatePriviledge = function(username, canEditNews) {
+    db = openConnection()
+
+    db.run('UPDATE Staff_Account SET canEditNews = (?) WHERE username = (?)', [canEditNews, username], (err) => {
+        if(err) console.log(err.message)
+        else console.log('Priviledge level updated to ' + canEditNews + ' for user: ' + username)
+    })
+
+    db.close()
 }
 
 exports.printAll = function() {

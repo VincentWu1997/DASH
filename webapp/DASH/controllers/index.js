@@ -30,24 +30,28 @@ let db = new sqlite3.Database(path.join(__dirname, '..', 'models/data/database.d
 })
 db.serialize(function() {
     // creating tables
-    db.run('CREATE TABLE IF NOT EXISTS Staff_Account (staffID INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR NOT NULL UNIQUE, password VARCHAR not null, canEditNews BOOLEAN DEFAULT FALSE)')
-    db.run('CREATE TABLE IF NOT EXISTS User_Account (userID INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR NOT NULL UNIQUE, password VARCHAR not null, staffID INTEGER NOT NULL, FOREIGN KEY (staffID) REFERENCES Staff_Account (staffID))')
-    db.run('CREATE TABLE IF NOT EXISTS News (newsID INTEGER PRIMARY KEY AUTOINCREMENT, staffID INTEGER NOT NULL, title VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, blurb VARCHAR,  FOREIGN KEY(staffID) REFERENCES Staff_Account(staffID))')
-    db.run('CREATE TABLE IF NOT EXISTS Feedback (feedbackID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, feedback VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY(userID) REFERENCES User_Account(userID))')    
-    db.run('CREATE TABLE IF NOT EXISTS Referral_Form (referralID INTEGER PRIMARY KEY AUTOINCREMENT, userID INTEGER NOT NULL, referralJSON VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, status INTEGER DEFAULT 0, FOREIGN KEY(userID) REFERENCES User_Account(userID))')
+    db.run('CREATE TABLE IF NOT EXISTS Staff_Account (username VARCHAR PRIMARY KEY, password VARCHAR NOT NULL, canEditNews BOOLEAN DEFAULT FALSE)')
+    db.run('CREATE TABLE IF NOT EXISTS User_Account (email VARCHAR PRIMARY KEY, password VARCHAR NOT NULL, username INTEGER NOT NULL, FOREIGN KEY (username) REFERENCES Staff_Account (username))')
+    db.run('CREATE TABLE IF NOT EXISTS News (newsID INTEGER PRIMARY KEY AUTOINCREMENT, username VARCHAR NOT NULL, title VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, blurb VARCHAR,  FOREIGN KEY(username) REFERENCES Staff_Account(username))')
+    db.run('CREATE TABLE IF NOT EXISTS Feedback (feedbackID INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR NOT NULL, feedback VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, FOREIGN KEY(email) REFERENCES User_Account(email))')    
+    db.run('CREATE TABLE IF NOT EXISTS Referral_Form (referralID INTEGER PRIMARY KEY AUTOINCREMENT, email VARCHAR NOT NULL, referralJSON VARCHAR not null, date DATETIME DEFAULT CURRENT_TIMESTAMP, status INTEGER DEFAULT 0, FOREIGN KEY(email) REFERENCES User_Account(email))')
     
-    // create admin account ie staff account 0
-    db.run('INSERT INTO Staff_Account(staffID, username, password, canEditNews) VALUES(0, "admin", "password", 1)', (err) => {
-        if(err) console.log('Admin account already created.')
-        else console.log('Admin account created')
+    // create admin account which will be stored as a staff account with the username admin
+    var adminAccount = require('../models/staff_account')
+    adminAccount.create('admin', 'password', 1, (err) => {
+        if(err) console.log(err.message)
     })
 
-    // testing /models/staff_account.js
+    /* testing /models/staff_account.js
+     * all use cases for staff_account model
     var StaffAccountTest = require('../models/staff_account')
     StaffAccountTest.create('staff01', 'password', 0, (err) => {
         if(err) console.log(err.message)
     })
+    StaffAccountTest.updatePriviledge('staff01', 0)
+    StaffAccountTest.changePassword('staff01', 'password', 'password123')
     StaffAccountTest.printAll()
+    */
 
     // testing /models/user_account.js
     var UserAccountTest = require('../models/user_account')
@@ -55,6 +59,7 @@ db.serialize(function() {
         if(err) console.log(err.message)
     })
     UserAccountTest.printAll()
+    
     
 
     /* testing /models/feedback.js

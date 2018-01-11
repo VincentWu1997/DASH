@@ -8,19 +8,19 @@ function openConnection() {
     return database
 }
 
-exports.create = function(email, password, staffID, callback) {
+exports.create = function(email, password, username, callback) {
     db = openConnection();
-    db.run('INSERT INTO User_Account(email, password, staffID) VALUES(?, ?, ?)', [email, password, staffID], (err) => {
+    db.run('INSERT INTO User_Account(email, password, username) VALUES(?, ?, ?)', [email, password, username], (err) => {
         if(err) callback(new Error("Email already exists!"))
         else callback(null)
     })
     db.close();
 }
 
-exports.delete = function(userID) {
+exports.delete = function(email) {
     db = openConnection();
 
-    db.run('DELETE FROM User_Account WHERE userID = (?)', [userID], (err) => {
+    db.run('DELETE FROM User_Account WHERE email = (?)', [email], (err) => {
         if(err) console.log(err.message)
         else console.log('User Account successfully deleted.')
     })
