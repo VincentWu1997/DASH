@@ -28,6 +28,17 @@ exports.delete = function(email) {
     db.close();
 }
 
+exports.changePassword = function(email, old_password, new_password) {
+    db = openConnection()
+    
+    db.run('UPDATE User_Account SET password = (?) WHERE username = (?) AND password = (?)', [new_password, email, old_password], (err) => {
+        if(err) console.log(err.message)
+        else console.log('Password updated!')
+    })
+    
+    db.close()
+}
+
 exports.printAll = function() {
     db = openConnection()
 

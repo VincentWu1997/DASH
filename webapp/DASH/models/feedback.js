@@ -19,13 +19,11 @@ exports.save = function(email, feedback) {
     db.close();
 }
 
-exports.get = function() {
+exports.get = function(callback) {
     db = openConnection();
     
     db.all('SELECT * FROM Feedback', (err, rows) => {
-        if(err) throw err
-        console.log(rows)
-        return rows
+        callback(err, rows)
     })
     
     db.close();

@@ -10,10 +10,12 @@ function openConnection() {
 
 exports.create = function(username, password, canEditNews, callback) {
     db = openConnection();
+
     db.run('INSERT INTO Staff_Account(username, password, canEditNews) VALUES(?, ?, ?)', [username, password, canEditNews], (err) => {
         if(err) callback(new Error("Username already exists!"))
         else callback(null)
     })
+    
     db.close();
 }
 
@@ -31,12 +33,12 @@ exports.delete = function(username) {
 exports.changePassword = function(username, old_password, new_password) {
     db = openConnection()
     
-        db.run('UPDATE Staff_Account SET password = (?) WHERE username = (?) AND password = (?)', [new_password, username, old_password], (err) => {
-            if(err) console.log(err.message)
-            else console.log('Password updated!')
-        })
+    db.run('UPDATE Staff_Account SET password = (?) WHERE username = (?) AND password = (?)', [new_password, username, old_password], (err) => {
+        if(err) console.log(err.message)
+        else console.log('Password updated!')
+    })
     
-        db.close()
+    db.close()
 }
 
 exports.updatePriviledge = function(username, canEditNews) {
