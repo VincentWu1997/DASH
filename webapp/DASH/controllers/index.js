@@ -64,7 +64,6 @@ MessagesTest.get('email@email.com', (err, messages) => {
 })
 */
 
-
 /* testing /models/referral_form.js
 var ReferralTest = require('../models/referral_form')
 //ReferralTest.save('email@email.com', '{JSON would be here} sent first')
@@ -83,6 +82,15 @@ ReferralTest.getAll('email@email.com', (err, referrals) => {
     else console.log('All of the submitted referrals are below \n' + referrals)
 })
 //ReferralTest.printAll()
+*/
+
+/* testing /models/news.js
+var NewsTest = require('../models/news')
+//NewsTest.add('staff01', 'Title01', 'Blurb01')
+NewsTest.get((err, news) => {
+    if(err) console.log('Error getting news!')
+    else console.log(news)
+})
 */
 
 // testing routes....

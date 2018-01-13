@@ -72,10 +72,10 @@ exports.getAll = function(email, callback) {
 exports.printAll = function() {
     db = openConnection()
     
-        db.each('SELECT * FROM Referral_Form', (err, row) => {
-            if(err) console.log(err.message)
-            console.log(row);
-        })
-    
-        db.close()
+    db.each('SELECT * FROM Referral_Form', (err, row) => {
+        if(err) console.log(err.message)
+        console.log(row);
+    })
+
+    db.close()
 }

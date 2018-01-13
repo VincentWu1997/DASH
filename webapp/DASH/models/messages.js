@@ -23,7 +23,7 @@ exports.save = function(email, username, message, sender) {
 exports.get = function(email, callback) {
     db = openConnection()
     
-    db.all('SELECT email, username, message, date, sender FROM Messages WHERE email = (?) ORDER BY datetime(date)', [email], (err, rows) => {
+    db.all('SELECT username, message, date, sender FROM Messages WHERE email = (?) ORDER BY datetime(date)', [email], (err, rows) => {
         callback(err, rows)
     })
 

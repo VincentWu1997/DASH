@@ -7,3 +7,35 @@ function openConnection() {
     })
     return db
 }
+
+exports.add = function(username, title, blurb) {
+    db = openConnection()
+    
+    db.run('INSERT INTO News(username, title, blurb) VALUES(?, ?, ?)', [username, title, blurb], (err) => {
+        if(err) console.log(err.message)
+        else console.log('News with title: ' + title + ' successfully inserted by staff user: ' + username + '!')
+    })
+
+    db.close()
+}
+
+exports.get = function(callback) {
+    db = openConnection()
+    
+    db.all('SELECT title, date, blurb FROM News', (err, rows) => {
+       callback(err, rows)
+    })
+
+    db.close()
+}
+
+exports.printAll = function() {
+    db = openConnection()
+    
+    db.each('SELECT * FROM News', (err, row) => {
+        if(err) console.log(err.message)
+        console.log(row);
+    })
+
+    db.close()
+}
