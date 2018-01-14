@@ -19,10 +19,11 @@ exports.add = function(username, title, blurb) {
     db.close()
 }
 
-exports.get = function(callback) {
+// returns all the news after a certain date
+exports.get = function(date, callback) {
     db = openConnection()
     
-    db.all('SELECT title, date, blurb FROM News', (err, rows) => {
+    db.all('SELECT title, date, blurb FROM News WHERE DATETIME((?)) <= DATETIME(date) ', [date], (err, rows) => {
        callback(err, rows)
     })
 

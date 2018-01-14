@@ -8,7 +8,7 @@ var referral_form = require('../middlewares/referral_form')
 var messages = require('../middlewares/messages')
 var feedback = require('../middlewares/feedback')
 var news = require('../middlewares/news')
-var logon = require('../middlewares//logon')
+var logon = require('../middlewares/logon')
 
 
 // setting up routes for backend api
@@ -87,11 +87,11 @@ ReferralTest.getAll('email@email.com', (err, referrals) => {
 /* testing /models/news.js
 var NewsTest = require('../models/news')
 //NewsTest.add('staff01', 'Title01', 'Blurb01')
-NewsTest.get((err, news) => {
+NewsTest.get('2017-01-13 18:12:49', (err, news) => {
     if(err) console.log('Error getting news!')
     else console.log(news)
-})
-*/
+})*/
+
 
 // testing routes....
 router.use(express.static(path.join(__dirname, '..', 'views')))
