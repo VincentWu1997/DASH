@@ -23,7 +23,7 @@ exports.add = function(username, title, blurb) {
 exports.get = function(date, callback) {
     db = openConnection()
     
-    db.all('SELECT title, date, blurb FROM News WHERE DATETIME((?)) <= DATETIME(date) ', [date], (err, rows) => {
+    db.all('SELECT newsID, title, date, blurb FROM News WHERE DATETIME((?)) <= DATETIME(date) ', [date], (err, rows) => {
        callback(err, rows)
     })
 

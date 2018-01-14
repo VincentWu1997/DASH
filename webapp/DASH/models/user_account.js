@@ -11,8 +11,7 @@ function openConnection() {
 exports.create = function(email, password, username, callback) {
     db = openConnection();
     db.run('INSERT INTO User_Account(email, password, username) VALUES(?, ?, ?)', [email, password, username], (err) => {
-        if(err) callback(new Error("Email already exists!"))
-        else callback(null)
+        callback(err)
     })
     db.close();
 }

@@ -2,6 +2,10 @@ var express = require('express')
 var router = express.Router()
 
 // post method to send feedback from mobile app
+/*
+    email
+    feedback
+*/
 router.post('/send_feedback', function(req, res) {
     console.log("/feedback/send_feedback")
 })
