@@ -19,8 +19,9 @@ router.get('/:date', function(req, res) {
     blurb
     username
 */
-router.post('/add', function(req, res) {
+router.post('/add', function (req, res) {
     console.log("/news/add")
+    newsModel.add(req.body.username, req.body.title, req.body.blurb)
 })
 
 // post method that removes a specific news story
@@ -29,6 +30,7 @@ router.post('/add', function(req, res) {
 */
 router.post('/remove', function(req, res) {
     console.log("/news/remove")
+    newsModel.remove(req.body.newsID)
 })
 
 // post method that alters an existing news story 

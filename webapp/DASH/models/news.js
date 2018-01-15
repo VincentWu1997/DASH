@@ -30,6 +30,19 @@ exports.get = function(date, callback) {
     db.close()
 }
 
+exports.remove = function (newsID) {
+    db = openConnection()
+
+    db.run('DELETE FROM News WHERE newsID = (?)', [newsID], (err) => {
+        if (err)
+            console.log(err.message)
+        else
+            console.log('News with Id:' + newsID + 'deleted from feed')
+    })
+
+    db.close()
+}
+
 exports.printAll = function() {
     db = openConnection()
     
