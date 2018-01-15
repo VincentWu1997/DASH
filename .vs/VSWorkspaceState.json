@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\webapp",
+    "\\webapp\\DASH",
+    "\\webapp\\DASH\\middlewares",
+    "\\webapp\\DASH\\models",
+    "\\webapp\\DASH\\public"
+  ],
+  "SelectedNode": "\\webapp\\DASH\\models\\news.js",
+  "PreviewInSolutionExplorer": false
+}

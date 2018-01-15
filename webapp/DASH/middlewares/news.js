@@ -41,6 +41,7 @@ router.post('/remove', function(req, res) {
 */
 router.post('/update', function(req, res) {
     console.log("/news/update")
+    newsModel.update(req.body.newsID, req.body.title, req.body.blurb)
 })
 
 module.exports = router

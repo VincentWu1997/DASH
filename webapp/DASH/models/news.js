@@ -43,6 +43,18 @@ exports.remove = function (newsID) {
     db.close()
 }
 
+exports.update = function (newsID, title, blurb) {
+    db = openConnection()
+
+    db.run('UPDATE News SET title = (?), blurb = (?) WHERE newsID = (?)', [title, blurb, newsID], (err) => {
+        if (err) console.log(err.message)
+        else console.log('News with title: ' + title + ' successfully edited')
+    })
+
+    db.close()
+}
+
+
 exports.printAll = function() {
     db = openConnection()
     
