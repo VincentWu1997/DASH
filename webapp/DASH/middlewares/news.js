@@ -7,8 +7,8 @@ var newsModel = require('../models/news')
 /*
     date input in url
 */
-router.get('/:date', function(req, res) {
-    newsModel.get(req.params.date, (err, news) => {
+router.get('/', function(req, res) {
+    newsModel.get(req.query.date, (err, news) => {
         res.send({'News':news})
     })
 })
