@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+        <head>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+            
+            <title>Login</title>
+            <script> 
+            $(document).ready(function(){
+            })
+            </script>
+            
+        </head>
+        <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand visible-xs-block" href="#">Login</a>
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#events-navbar-collapse" aria-expanded="false">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>  
+                </button>
+              </div>
+
+            <div class="collapse navbar-collapse" id="events-navbar-collapse">
+              <ul class="nav navbar-nav navbar-left">
+                  <li class="active"><a href="#">Login Page</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <br><br><br><br>
+        <div class="container" id="admin">
+          <form id="login">
+            <input type="username" id="username_in" class="form-control" placeholder="Username" required autofocus>
+          <br>
+            <input type="password" id="password_in" class="form-control" placeholder="Password" required>
+          <br>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+        <br>
+          </form>
+        </div>
+
+        <script>
+          function submitDetails(e) {
+            var xmlhttp = new XMLHttpRequest();
+            
+            xmlhttp.onreadystatechange = function() {
+              if (this.readyState == 4 && this.status == 200) {
+                verifyCookie();
+              }
+            }
+       //     xmlhttp.open('POST', 'http://127.0.0.1:8090/events2017/auth/check', true);
+        //    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        //    xmlhttp.send('username=' + $('#username_in').val() + '&&password=' + $('#password_in').val());
+          }
+          function verifyCookie() {
+            document.location.reload();
+          } 
+          $('#login').submit(function(e) {
+            e.preventDefault();
+            submitDetails(e);
+          })
+        </script>
+        </body>
+    </html>
