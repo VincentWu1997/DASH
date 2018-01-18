@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+      <title>Staff Management</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+      <div class="navigate">
+	   <a class="navbar-brand" href="https://www.dashorg.co.uk/">DASH</a>
+           
+           <ul>
+      	       <li><a href="./index.html">Home</a>
+               </li>
+      	       <li><a href="./feedback.html">Feedback</a>
+      	       </li>
+      				
+    	   </ul>    
+      </div>
+
+      
+      <div class = "addStaff">
+            <button type = "button" class = "btn btn-default btn-lg addStaffAccount" id = "addButton">Add Staff</button>
+      
+            <div class = "createStaffAccount">
+                <div class = "Username">Username</div>
+                <input type = "text" placeholder = "Input a new username">
+                
+                <div class = "password">Password</div>
+                <input type = "text" placeholder = "Set initial password">
+                
+                <div class = "canEditNews">Can this staff edit news</div>
+                <input type = "text" placeholder = "Input YES or NO">
+                
+                <div><button type = "button" class = "btn btn-primary btn-md" id = addStaffButton>submit</button></div>
+               
+            </div>
+       </div>
+       
+       
+
+       <p></p>
+       <div class = "DeleteStaff">
+            <button type = "button" class = "btn btn-default btn-lg deleteStaffAccount" id = "deleteButton">Delete Staff</button>
+            <div class = "grid-item">
+                 <div class = del_username>Username of the staff to be deleted</div>
+                 <input type = "text">
+                 <div><button type = "button" class = "btn btn-primary btn-md" id = "deleteStaffButton">submit</button>
+                 </div>
+            </div>
+       </div>
+       
+       
+
+       <p></p>
+       <div class = "updatePrivilege">
+            <button type = "button"class = "btn btn-default btn-lg updateStaffAccount" id = "updateButton">Update Staff</button>
+            <div class = "grid-item">
+                 <div class = upd_username>Username of the staff to be updated</div>
+                 <input type = "text">
+                 <div><button type = "button" class = "btn btn-primary btn-md" id = "UpdatePrivilegeButton">submit</button></div>
+            </div>
+       </div>
+
+       
+       <p></p>
+       <div class = "signUsersToStaff">
+           <button type = "button"class = "btn btn-default btn-lg signUsers" id = "signButton">Sign Users to Staff</button>
+           <div class = "grid-item">
+                <div class = specific_staff>Staff
+                     <div><input type = "text" placeholder = "Username of the staff"></div>
+                </div>
+                
+                <div class = specific_user>User
+                     <div><input type = "text" placeholder = "e-mail of the user"></div>
+                </div>
+                
+                <div><button type = "button" class = "btn btn-primary btn-md" id = "signStaffButton">submit</button>
+                </div>
+           </div>
+       </div>
+
+       
+    
+
+
+       
+
+
+
+       
+
+
+</body>
+</html>

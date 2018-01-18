@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./public/css/staff.css">
+    
+    <title>Login</title>
+
+</head>
+        <body background-image=url("../public/img/durham.jpg")>
+            <div class="wrapper">
+                <nav class="nav navbar nav-pills navbar-inverse">
+                    <a class="navbar-brand" href="https://www.dashorg.co.uk/">DASH</a>
+                </nav>
+            </div>
+            <br><br><br><br>
+            <div class="container" id="admin">
+                <form class="form-sigin" id="login">
+                    <input type="username" id="username_in" class="form-control" placeholder="Username" required autofocus>
+                    <br>
+                    <input type="password" id="password_in" class="form-control" placeholder="Password" required>
+                    <br>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    <br>
+                </form>
+            </div>
+
+            <script>
+                function submitDetails(e) {
+                    var data = { "username": $('#username_in').val(), "password": $('#password_in').val() }
+                    $.post("http://localhost:8090/logon/staff", data, function (datar, status) {
+                        console.log(data)
+                        console.log(datar)
+                        console.log(status)
+                    });
+                   
+                }
+                $('#login').submit(function (e) {
+                    e.preventDefault();
+                    submitDetails(e);
+                })
+            </script>
+        </body>
+    </html>
